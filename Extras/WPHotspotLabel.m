@@ -56,7 +56,8 @@
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)self.attributedText);
     
     CGMutablePathRef framePath = CGPathCreateMutable();
-    CGPathAddRect(framePath, NULL, CGRectMake(0, 0, self.frame.size.width, self.frame.size.height));
+//    CGPathAddRect(framePath, NULL, CGRectMake(0, 0, self.frame.size.width, self.frame.size.height));
+    CGPathAddRect(framePath, NULL, CGRectInset(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height), -5, -5));
     // Get the frame that will do the rendering.
     CFRange currentRange = CFRangeMake(0, 0);
     CTFrameRef frameRef = CTFramesetterCreateFrame(framesetter, currentRange, framePath, NULL);
